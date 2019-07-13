@@ -1,0 +1,61 @@
+﻿@model AuthFull.Models.WorkExperience
+@{
+    ViewData["Title"] = "AddWork";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>ADD ACADEMIC DETAILS</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddWorkDetails">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="WorkId" />
+            <div class="form-group">
+                <label asp-for="Company" class="control-label"></label>
+                <input asp-for="Company" class="form-control" />
+                <span asp-validation-for="Company" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobTitle" class="control-label"></label>
+                <input asp-for="JobTitle" class="form-control" />
+                <span asp-validation-for="JobTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_Of_Years" class="control-label"></label>
+                <input asp-for="No_Of_Years" class="form-control" />
+                <span asp-validation-for="No_Of_Years" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Responsibilites" class="control-label"></label>
+                <input asp-for="Responsibilites" class="form-control" />
+                <span asp-validation-for="Responsibilites" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Technologies_Used" class="control-label"></label>
+                <input asp-for="Technologies_Used" class="form-control" />
+                <span asp-validation-for="Technologies_Used" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="CourseId" class="control-label"></label>
+            <select asp-for="CourseId" class="form-control" asp-items="ViewBag.CourseId"></select>
+            <span asp-validation-for="CourseId" class="text-danger"></span>
+        </div>*@
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">
+        Back to Applicant Information
+    </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

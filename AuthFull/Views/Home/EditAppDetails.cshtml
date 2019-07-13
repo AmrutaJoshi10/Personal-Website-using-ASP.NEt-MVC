@@ -1,0 +1,136 @@
+﻿@model AuthFull.Models.Applican
+
+@{
+    ViewData["Title"] = "EditAppDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body class="EditApp">
+<h1>Edit Personal Details</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class=" editApp">
+            <form asp-action="EditAppDetails">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ApplicantId" />
+                <table>
+                    <tr>
+                        <td>
+                            <b>  <label asp-for="FirstName" class="form-control">First Name</label></b>
+                        </td>
+                        <td>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b><label asp-for="LastName" class="control-label">Last Name</label></b>
+                        </td>
+                        <td>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <b> <label asp-for="EmailId" class="control-label">Email Id</label></b>
+                        </td>
+                        <td>
+                            <input asp-for="EmailId" class="form-control" />
+                            <span asp-validation-for="EmailId" class="text-danger"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <b> <label asp-for="Address" class="control-label"></label></b>
+                        </td>
+                        <td>
+                            <input asp-for="Address" class="form-control" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <b>  <label asp-for="City" class="control-label"></label></b>
+                        </td>
+                        <td>
+                            <input asp-for="City" class="form-control" />
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>   <label asp-for="Country" class="control-label"></label></b>
+                        </td>
+                        <td>
+                            <b>  <input asp-for="Country" class="form-control" /></b>
+                            <span asp-validation-for="Country" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>  <label asp-for="PinCode" class="control-label"></label></b>
+                        </td>
+                        <td>
+                            <input asp-for="PinCode" class="form-control" />
+                            <span asp-validation-for="PinCode" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>   <label asp-for="Date_Of_Birth" class="control-label"></label></b>
+                        </td>
+                        <td>
+                            <input asp-for="Date_Of_Birth" class="form-control" />
+                            <span asp-validation-for="Date_Of_Birth" class="text-danger"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <b>  <label asp-for="Gender" class="control-label"></label></b>
+                        </td>
+                        <td>
+                            <input asp-for="Gender" class="form-control" />
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>   <label asp-for="Phone_Number" class="control-label"></label></b>
+                        </td>
+                        <td>
+                            <input asp-for="Phone_Number" class="form-control" />
+                            <span asp-validation-for="Phone_Number" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Save" class="btn btn-primary" /> &nbsp;
+                            <button asp-action="ReviewApplication">Back to Applicant </button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+    </div>
+    <br />
+    <br />
+
+  
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+    </body>

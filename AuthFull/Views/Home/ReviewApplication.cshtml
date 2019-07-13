@@ -1,0 +1,132 @@
+﻿@using AuthFull.Models;
+@model ViewModel
+@{
+    ViewData["Title"] = "Please Review The Application";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body class="ReviewBody">
+    <br />
+    <div class="Review">
+        <u> <h2>Personal Details:</h2></u>
+
+        @foreach (Applican item in Model.Applicann)
+        {
+            <div class="ReviewDetails">
+
+                <a asp-action="EditAppDetails" asp-route-id="@item.ApplicantId">Edit</a>
+
+            </div>
+            <b>Name : </b>
+            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.LastName)
+            <br />
+            <br />
+            <b>Email Id :</b>
+            @Html.DisplayFor(modelItem => item.EmailId)
+            <br />
+            <br />
+            <b>Address :</b>
+            @Html.DisplayFor(modelItem => item.Address)
+            <br />
+            <br />
+            <b>City :</b>
+            @Html.DisplayFor(modelItem => item.City)
+            <br />
+            <br />
+            <b>Country :</b>
+            @Html.DisplayFor(modelItem => item.Country)
+            <br />
+            <br />
+            <b>Pincode :</b>
+            @Html.DisplayFor(modelItem => item.PinCode)
+            <br />
+            <br />
+            <b>Date Of Birth :</b>
+            @Html.DisplayFor(modelItem => item.Date_Of_Birth)
+            <br />
+            <br />
+            <b>Contact Number :</b>
+            @Html.DisplayFor(modelItem => item.Phone_Number)
+            <br />
+            <br />
+            <br />
+
+        }
+
+        <hr />
+        <u> <h2>Academic Details: </h2></u>
+        @foreach (Academic item in Model.Academii)
+        {
+
+            <div class="ReviewDetails">
+
+                <a asp-action="AddAcademic" asp-route-id="@item.ApplicantId">Add</a> |
+                <a asp-action="EditAcademic" asp-route-id="@item.AcademicId">Edit</a> |
+                <a asp-action="DeleteAcademic" asp-route-id="@item.AcademicId">Delete</a>
+            </div>
+            <b>School Of Studying :</b>
+            @Html.DisplayFor(modelItem => item.School_Of_Studying)
+            <br />
+            <br />
+            <b> Degree :</b>
+            @Html.DisplayFor(modelItem => item.Degree)
+            <br />
+            <br />
+            <b>Major :</b>
+            @Html.DisplayFor(modelItem => item.Major)
+            <br />
+            <br />
+            <b>Date Of Graduation :</b>
+            @Html.DisplayFor(modelItem => item.Graduation_Date)
+            <br />
+            <br />
+            <b>GPA :</b>
+            @Html.DisplayFor(modelItem => item.GPA)
+            <br />
+            <br />
+            <b>Projects Links :</b>
+            @Html.DisplayFor(modelItem => item.project_Links)
+            <a target="_blank" asp-action="ExternalLink" asp-route-name=@item.project_Links>Project Link</a>
+            <br />
+            <br />
+            <b>Description [if any] :</b>
+            @Html.DisplayFor(modelItem => item.Description_About_Projects)
+            <hr />
+           
+        }
+
+
+        <u> <h2>Work Experience: </h2></u>
+        @foreach (WorkExperience item in Model.WorkOp)
+        {
+
+            <div class="ReviewDetails">
+
+                <a asp-action="WorkExperienceDetails" asp-route-id="@item.ApplicantIds">Add</a> |
+                <a asp-action="EditWorkDetails" asp-route-id="@item.WorkId">Edit</a> |
+                <a asp-action="DeleteWorkExp" asp-route-id="@item.WorkId">Delete</a>
+            </div>
+            <b>Company :</b>
+            @Html.DisplayFor(modelItem => item.Company)
+            <br />
+            <br />
+            <b> Job Title :</b>
+            @Html.DisplayFor(modelItem => item.JobTitle)
+            <br />
+            <br />
+            <b>Number of Years Of Experience :</b>
+            @Html.DisplayFor(modelItem => item.No_Of_Years)
+            <br />
+            <br />
+            <b>Responsibilities:</b>
+            @Html.DisplayFor(modelItem => item.Responsibilites)
+            <br />
+            <br />
+            <b>Technologies Used :</b>
+            @Html.DisplayFor(modelItem => item.Technologies_Used)
+            <hr />
+            <br />
+        }
+
+</body>

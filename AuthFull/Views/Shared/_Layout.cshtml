@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AuthFull</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/js/site.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="log">
+                <partial name="_LoginPartial" />
+            </div>
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"></a>
+                <a class="active" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <div>
+                    <a class="active" href="~/About.html">About</a>
+                </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Admin"))
+                    {
+
+                        <div class="dropdown">
+                            <button class="dropbtn" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                Profile
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+
+                                <a class="active" asp-controller="Home" asp-action="ProfileDetails">Create New Profile</a>
+                                <a class="active" asp-controller="Home" asp-action="AddAcademic">Add Academic</a>
+                                <a class="active" asp-controller="Home" asp-action="WorkExperienceDetails">Add Work Experience</a>
+                            </div>
+                        </div>
+                    }
+                }
+
+                <div>
+                    <a class="active" asp-area="" asp-controller="Home" asp-action="ReviewApplication">Review Application</a>
+                </div>
+
+                <div>
+                    <a class="active" asp-area="" asp-controller="ApI" asp-action="Result">Files</a>
+                </div>
+                <div>
+                    <a class="active" asp-area="" asp-controller="Home" asp-action="Comment">Comments</a>
+                </div>
+</nav>
+    </header>
+    <div class="container">
+        <partial name="_CookieConsentPartial" />
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

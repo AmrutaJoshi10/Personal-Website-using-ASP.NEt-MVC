@@ -1,0 +1,82 @@
+﻿@model IEnumerable<AuthFull.Models.Academic>
+
+@{
+    ViewData["Title"] = "AcademicInformation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>My Academic Information </h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.School_Of_Studying)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Degree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Major)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Graduation_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GPA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.project_Links)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description_About_Projects)
+            </th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="padding: 0.1em;">
+                    @Html.DisplayFor(modelItem => item.School_Of_Studying)
+                </td>
+                <td style="padding: 0.1em;">
+                    @Html.DisplayFor(modelItem => item.Degree)
+                </td>
+                <td style="padding: 0.1em;">
+                    @Html.DisplayFor(modelItem => item.Major)
+                </td>
+                <td style="padding: 0.1em;">
+                    @Html.DisplayFor(modelItem => item.Graduation_Date)
+                </td>
+                <td style="padding: 0.1em;">
+                    @Html.DisplayFor(modelItem => item.GPA)
+                </td>
+                <td style="padding: 0.1em;">
+                    @Html.DisplayFor(modelItem => item.project_Links)
+                </td>
+                <td style="padding: 0.1em;">
+                    @Html.DisplayFor(modelItem => item.Description_About_Projects)
+                </td>
+
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="AddAcademic" asp-route-id="@item.ApplicantId">Add</a>
+                        <a asp-action="DeleteAcademic" asp-route-id="@item.AcademicId">Delete Academic</a>
+                    }
+
+                }
+
+                </tr>
+        }
+        </tbody>
+    </table>
+
+    <div>
+        <a asp-action="Index">Back To Home Page </a>
+    </div>
+

@@ -1,0 +1,15 @@
+﻿@model Comment
+@{
+    ViewData["Title"] = "AddComment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1> Add Your Comments !!!</h1>
+
+<form name="Form" asp-controller="Home" asp-action="AddComment" method="post" onsubmit="return validateForm()">
+
+    <input asp-for="Message" class="form-control" />
+    <span asp-validation-for="Message" class="text-danger"></span>
+    <button type="submit">Submit</button>
+</form>
+
+<br />

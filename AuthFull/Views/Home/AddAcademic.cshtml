@@ -1,0 +1,113 @@
+﻿@model AuthFull.Models.Academic
+@{
+    ViewData["Title"] = "AddAcademic";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add Academic Details</h1>
+<div class="AddAcademic">
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddAcademic">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AcademicId" />
+            <table>
+                <tr>
+                    <td>
+
+                        <b>  <label asp-for="School_Of_Studying" class="control-label">School Of Studying</label></b>
+                    </td>
+                    <td>
+                        <input asp-for="School_Of_Studying" class="form-control" />
+                        <span asp-validation-for="School_Of_Studying" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>   <label asp-for="Degree" class="control-label"></label></b>
+                    </td>
+                    <td>
+                        <input asp-for="Degree" class="form-control" />
+                        <span asp-validation-for="Degree" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b> <label asp-for="Major" class="control-label"></label></b>
+                    </td>
+                    <td>
+                        <input asp-for="Major" class="form-control" />
+                        <span asp-validation-for="Major" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>
+                        <b>    <label asp-for="Graduation_Date" class="control-label">Graduation Date</label></b>
+                    </td>
+                    <td>
+                        <input type="date" asp-for="Graduation_Date" class="form-control" />
+                        <span asp-validation-for="Graduation_Date" class="text-danger"></span>
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <b>   <label asp-for="GPA" class="control-label"></label></b>
+                    </td>
+                    <td>
+                        <input asp-for="GPA" class="form-control" />
+                        <span asp-validation-for="GPA" class="text-danger"></span>
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <b>     <label asp-for="project_Links" class="control-label">Project Links </label></b>
+                    </td>
+                    <td>
+                        <input type="url" asp-for="project_Links" class="form-control" />
+                        <span asp-validation-for="project_Links " class="text-danger"></span>
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <b>    <label asp-for="Description_About_Projects" class="control-label">Description </label></b>
+                    </td>
+                    <td>
+                        <textarea rows="3" cols="30" asp-for="Description_About_Projects" class="form-control" />
+                        </textarea>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+
+                <tr>
+                    <td>
+                        <input type="submit" value="Save" class="btn btn-primary" />&nbsp; &nbsp;
+                        <button asp-action="ReviewApplication">
+                            Back to Application
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+
+    </div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

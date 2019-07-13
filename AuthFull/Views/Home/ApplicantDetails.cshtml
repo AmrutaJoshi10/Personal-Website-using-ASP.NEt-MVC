@@ -1,0 +1,55 @@
+﻿@model AuthFull.Models.Applican
+
+
+@{
+    ViewData["Title"] = "ApplicantDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>View My Details </h1>
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmailId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmailId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+    </dl>
+</div>
+<div>
+    <h4 style="margin-bottom: 10px;">Academic Information</h4>
+    @foreach (var lct in Model.academs)
+    {
+        <div style="padding:0px 25px; margin:0px;">
+            @Html.Label(lct.Degree) -
+            @Html.Label(lct.School_Of_Studying) -
+            @Html.Label(lct.Major) -
+            @Html.Label(lct.Graduation_Date)
+
+        </div>
+    }
+</div>
+<div style="height: 10px;"></div>
+<div>
+    <a asp-action="Index">Back to Applicant </a>
+</div>

@@ -1,0 +1,101 @@
+﻿@model AuthFull.Models.Academic
+
+@{
+    ViewData["Title"] = "CreateAcademic";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Academic Information</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <!-- <a asp-controller="Home" asp-action="DeleteFields">Delete Image</a>-->
+
+        <form asp-action="CreateAcademic">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <label asp-for="School_Of_Studying" class="control-label"> <b> School Of Studying</b> </label>
+                        </td>
+                        <td>
+                            <input asp-for="School_Of_Studying" class="form-control" />
+                            <span asp-validation-for="School_Of_Studying" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label asp-for="Degree" class="control-label"> <b> Degree :</b> </label>
+                        </td>
+                        <td>
+                            <input asp-for="Degree" class="form-control" />
+                            <span asp-validation-for="Degree" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label asp-for="Major" class="control-label"> <b> Major :</b> </label>
+                        </td>
+                        <td>
+                            <input asp-for="Major" class="form-control" />
+                            <span asp-validation-for="Major" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label asp-for="Graduation_Date" class="control-label"> <b> Graduation Date :</b> </label>
+                        </td>
+                        <td>
+                            <input asp-for="Graduation_Date" class="form-control" />
+                            <span asp-validation-for="Graduation_Date" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label asp-for="GPA" class="control-label"> <b> Projects :</b> </label>
+                        </td>
+                        <td>
+                            <input asp-for="GPA" class="form-control" />
+                            <span asp-validation-for="GPA" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label asp-for="project_Links" class="control-label"> <b> Description :</b> </label>
+                        </td>
+                        <td>
+                            <input asp-for="project_Links" class="form-control" />
+                            <span asp-validation-for="project_Links" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label asp-for="Description_About_Projects" class="control-label"> <b> Description :</b> </label>
+                        </td>
+                        <td>
+                            <input asp-for="Description_About_Projects" class="form-control" />
+                            <span asp-validation-for="Description_About_Projects" class="text-danger"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </td>
+                    </tr>
+                </table>
+                </div>
+                   
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Next Page ></a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

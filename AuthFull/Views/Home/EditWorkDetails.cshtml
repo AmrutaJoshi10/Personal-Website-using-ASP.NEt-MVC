@@ -1,0 +1,94 @@
+﻿@model AuthFull.Models.WorkExperience
+
+
+@{
+    ViewData["Title"] = "EditWorkDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Edit Work Experience Details</h1>
+
+<div class="EditWork">
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditWorkDetails">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="WorkId" />
+            <table>
+                <tr>
+                    <td>
+
+                        <b>     <label asp-for="Company" class="control-label"></label></b>
+                    </td>
+                    <td>
+                        <input asp-for="Company" class="form-control" />
+                        <span asp-validation-for="Company" class="text-danger"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <b> <label asp-for="JobTitle" class="control-label">Job Title</label></b>
+                    </td>
+                    <td>
+                        <input asp-for="JobTitle" class="form-control" />
+                        <span asp-validation-for="JobTitle" class="text-danger"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <b>   <label asp-for="No_Of_Years" class="control-label">Number Of Years</label></b>
+                    </td>
+                    <td>
+                        <input asp-for="No_Of_Years" class="form-control" />
+                        <span asp-validation-for="No_Of_Years" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>  <label asp-for="Technologies_Used" class="control-label">Technology Used</label></b>
+                    </td>
+                    <td>
+                        <textarea rows="3" cols="30" asp-for="Technologies_Used" class="form-control" />
+                       </textarea>
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td>
+                        <b>  <label asp-for="Responsibilites" class="control-label"></label></b>
+                    </td>
+                    <td>
+                        <textarea rows="3" cols="30" asp-for="Responsibilites" class="form-control" />
+                        </textarea>
+                    </td>
+                </tr>
+
+
+
+
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+
+                <tr>
+                    <td>
+                        <input type="submit" value="Save" class="btn btn-primary" /> &nbsp;&nbsp;
+                        <button asp-action="ReviewApplication">Back to Application</button>
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+    </div>
+</div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

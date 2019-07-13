@@ -1,0 +1,86 @@
+﻿@model IEnumerable<AuthFull.Models.WorkExperience>
+
+@{
+    ViewData["Title"] = "WorkInformation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1> PERSONAL WEBSITE !! </h1>
+<hr />
+<h1>Work INFORMATION FOR THE APPLICANT</h1>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.No_Of_Years)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Responsibilites)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Technologies_Used)
+            </th>
+
+
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.applicantN)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td style="padding: 0.1em;">
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td style="padding: 0.1em;">
+                @Html.DisplayFor(modelItem => item.JobTitle)
+            </td>
+            <td style="padding: 0.1em;">
+                @Html.DisplayFor(modelItem => item.No_Of_Years)
+            </td>
+
+            <td style="padding: 0.1em;">
+                @Html.DisplayFor(modelItem => item.Responsibilites)
+            </td>
+            <td style="padding: 0.1em;">
+                @Html.DisplayFor(modelItem => item.Technologies_Used)
+            </td>
+            <td style="padding: 0.1em;">
+                @Html.DisplayFor(modelItem => item.applicantN.FirstName)
+            </td>
+
+            <td style="padding: 0.1em;">
+                @Html.DisplayFor(modelItem => item.applicantN.LastName)
+            </td>
+            <td style="padding: 0.1em;">
+                <a asp-action="AddWorkDetails" asp-route-id="@item.ApplicantIds">Add WorkDetails</a>
+                <a asp-action="DeleteWorkExp" asp-route-id="@item.WorkId">Delete WorkDetails</a>
+                <a asp-action="EditWorkDetails" asp-route-id="@item.WorkId">Edit WorkDetails</a>
+
+
+
+
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index">Back to Applicant </a>
+</div>
+

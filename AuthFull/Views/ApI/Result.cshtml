@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AuthFull.Models.FileDetails>
+<h1><u>List of Files</h1></u>
+
+<br />
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </td> 
+            <td>
+                <a asp-action="Download" asp-route-filename="@item.Name">Download</a> &nbsp;&nbsp;
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="DeleteFile" asp-route-filename="@item.Name">Delete</a>
+                    }
+                }
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<hr />
+
+@if (User.Identity.IsAuthenticated)
+{
+    if (User.IsInRole("Admin"))
+    {
+        <h1><u>Upload Files</u></h1>
+        <br />
+
+        <form asp-controller="ApI" asp-action="UploadFiles" method="post"
+              enctype="multipart/form-data">
+            <input type="file" name="files" multiple />
+            <button type="submit">Upload Files</button>
+        </form>
+    }
+}

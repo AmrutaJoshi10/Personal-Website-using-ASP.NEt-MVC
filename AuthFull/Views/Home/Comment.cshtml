@@ -1,0 +1,32 @@
+﻿@model IEnumerable<AuthFull.Models.Comment>
+
+<h3>Feedback Comments from the Recruiters are welcomed.</h3>
+
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <b> @Html.DisplayFor(modelItem => item.UserName)</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <textarea rows="3" cols=" 20" class="textbox" disabled>
+                @Html.DisplayFor(modelItem => item.Message)
+</textarea>
+                <hr />
+
+            </td>
+
+        </tr>
+
+
+        }
+        <tr>
+            <td>
+
+                <a asp-action="AddComment" asp-controller="Home">Add Comments</a>
+            </td>
+        </tr>
+    </table>
